@@ -20,6 +20,7 @@ module IceCubeCron # :nodoc:
     # :nodoc:
     def nth_day?(param)
       return false if param.nil? || param.empty?
+
       param[0].is_a?(::Hash)
     end
 
@@ -31,6 +32,7 @@ module IceCubeCron # :nodoc:
     def build_root_recurrence_rule(expression) # :nodoc:
       return ::IceCube::Rule.minutely(expression.interval) if expression.minute.blank?
       return ::IceCube::Rule.hourly(expression.interval) if expression.hour.blank?
+
       unless nth_day?(expression.day_of_week)
         return ::IceCube::Rule.weekly(expression.interval) if expression.day_of_month.blank? && !expression.day_of_week.blank?
         return ::IceCube::Rule.daily(expression.interval) if expression.day_of_month.blank?

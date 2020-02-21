@@ -16,14 +16,14 @@ module IceCubeCron # :nodoc:
       :until => nil
     }.freeze
 
-    EXPRESSION_PART_KEYS = [
-      :minute,
-      :hour,
-      :day_of_month,
-      :month,
-      :day_of_week,
+    EXPRESSION_PART_KEYS = %i{
+      :minute
+      :hour
+      :day_of_month
+      :month
+      :day_of_week
       :year
-    ].freeze
+    }.freeze
 
     ##
     # Create a parsed expression
@@ -138,6 +138,7 @@ module IceCubeCron # :nodoc:
     #
     def self.sanitize_week_day_param(param)
       return nil if param.blank?
+
       param.to_s.split(',').map do |element|
         if element =~ /[0-9]+#[0-9]+/
           parts = element.split('#')

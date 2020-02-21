@@ -1,5 +1,4 @@
-# -*- encoding: utf-8 -*-
-$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+$LOAD_PATH.push File.expand_path('lib', __dir__)
 require 'ice_cube_cron/version'
 
 Gem::Specification.new do |s|
@@ -24,9 +23,9 @@ Gem::Specification.new do |s|
   ##
   # Development Dependencies
   #
-  s.add_development_dependency 'rake', '~> 10'
+  s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
   s.add_development_dependency 'pry', '~> 0'
+  s.add_development_dependency 'rake', '~> 10'
   s.add_development_dependency 'rspec', '~> 3.3'
   s.add_development_dependency 'rubocop', '~> 0'
-  s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
 end
